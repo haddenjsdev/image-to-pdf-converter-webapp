@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Convert Images to PDF | Bryan Hadden</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    
+    <meta name="description" content="Sass Application I built that converts images to PDF. Its quick, its easily, and all you need is a browser!.">
+    <meta property="og:site_name" content="Pdf from Image">
+    <meta property="og:title" content="Convert Your Images into PDFs">
+    <meta property="og:description" content="Convert images to PDF format, quickly and easily.">
+    
+    <meta property="og:image" content="#">
+    <link rel="icon" href="#">
+    <link rel="shortcut icon" href="#">
+    
+    <!-- Core Styles -->
+    <link href="/css/custom.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/main.css" rel="stylesheet" type="text/css">
+
+    <!-- Core Scripts -->
+    <script type="text/javascript" src="/js/piwik.js"></script>        
+    <script type="text/javascript" src="/js/jquery.custom.min.cs"></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/js/common.min.js"></script>
+    
+    <style type="text/css">
+        .bitcoinate{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #f7931a), color-stop(1, #c16c07));background-image:-webkit-linear-gradient(top, #f7931a 0%, #c16c07 100%);background-image:-moz-linear-gradient(top, #f7931a 0%, #c16c07 100%);background-image:-o-linear-gradient(top, #f7931a 0%, #c16c07 100%);background-image:-ms-linear-gradient(top, #f7931a 0%, #c16c07 100%);background-image:linear-gradient(top, #f7931a 0%, #c16c07 100%);font:900 12px/18px Arial,sans-serif;color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,0.5);border:1px solid #c16c07;margin:0;cursor:pointer;}.bitcoinate:hover,.bitcoinate:focus{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #f89e34), color-stop(1, #e88208));background-image:-webkit-linear-gradient(top, #f89e34 0%, #e88208 100%);background-image:-moz-linear-gradient(top, #f89e34 0%, #e88208 100%);background-image:-o-linear-gradient(top, #f89e34 0%, #e88208 100%);background-image:-ms-linear-gradient(top, #f89e34 0%, #e88208 100%);background-image:linear-gradient(top, #f89e34 0%, #e88208 100%)}.bitcoinate span{background-repeat:no-repeat;display:inline-block;vertical-align:middle;position:relative;margin:0 4px 0 0}.bitcoinate[data-size="20"]{padding:0 3px;-webkit-border-radius:2px;border-radius:2px;}.bitcoinate[data-size="20"]:active{-webkit-box-shadow:inset 0 0 4px rgba(0,0,0,0.5);box-shadow:inset 0 0 4px rgba(0,0,0,0.5)}.bitcoinate[data-size="20"] span{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAOCAQAAAC8qkUgAAAAAnNCSVQICFXsRgQAAAAJcEhZcwAACM8AAAjPAXtFbpsAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAA7UlEQVQY002Pv0sCAQBGP3AOW24paSkayy36Q5ra+w9sqyFwCxtMCIIgKMHEwQqaAoPAiFxaRBDi7AiE47zq6n543WvoSN/2PfiGJ0na3dw/2c6VrwuLmvBwYA8v8nC1nopSo9R4fP7wqrdQri5syJCUhEwRx2c1ZST1j+B9hMGSXYdoXMlLahXAdTSrueIegD2fSj9o3t91vC9oX2omlfE4fAq7PyF8+8eHk7sksiMTXk0pWyuC68hQTmu9PniOTuumBUFw02513oYAbkXBIP6MI5IkgsCKz9ki85/ZXJnKlCRrx3/pLkNv9W//AvkYphZShvCzAAAAAElFTkSuQmCC");width:10px;height:14px;bottom:2px}.bitcoinate[data-size="30"]{padding:0 8px;font-size:18px;line-height:28px;-webkit-border-radius:4px;border-radius:4px;}.bitcoinate[data-size="30"]:active{-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.5);box-shadow:inset 0 0 6px rgba(0,0,0,0.5)}.bitcoinate[data-size="30"] span{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAWCAQAAAC1Bg6SAAAAAnNCSVQICFXsRgQAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAABYUlEQVQoz2NgAAN+Qf4W/gwGBr5o/hZOWQZ0sFHv//9n9xgY7p7+/3+7HwnSGSDoWPf//8PHDEWXrv3/n9PCYM0gDpV9+QYE3777///P369f//z9///R01UHEuZypTJwAKX/4wDPXjhFgqQt/rt/vAsS+PTuf9r//P9t/55DFBzZD7XgzAIQ99VjCO+/yJ9fIP7bh9ikmRgMn70A8V8eQpF+/owhkSGTu2LqFqj1aSjSP389fPrqzfcfELkdRxkcGViRpFHB3787T+hFIEm/f/Hf7L/Df6//LX9eQ5ScOovF5QwMX00h0t++YJNmFLX59g0k8us7A4M2g+PmnSDOi6cMLgzeDIGseQt3Q3S/PcUwa/7Okx8/gzhfvuw4cejc6SvvP8Ddl8Lw8j6OQP/9vx4UhFv/H/5/9PdFIP/n/wu/gHb+uPB/3v/i/5LUSC1g8F3x//9/JxkY/m0EWmKJEAcA/Mp0SJF0rKkAAAAASUVORK5CYII=");width:15px;height:22px;bottom:2px}.bitcoinate[data-size="50"]{padding:0 12px;font-size:32px;line-height:48px;-webkit-border-radius:5px;border-radius:5px;text-shadow:0 -2px 0 rgba(0,0,0,0.5);}.bitcoinate[data-size="50"]:active{-webkit-box-shadow:inset 0 0 10px rgba(0,0,0,0.5);box-shadow:inset 0 0 10px rgba(0,0,0,0.5)}.bitcoinate[data-size="50"] span{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAkCAYAAAB8DZEQAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAVqgAAFaoBKQGivQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAO0SURBVEiJ7ZZPSCNXHMe/bzJNxkkm2ZmMZlnrv2VpUVk2sbgJ9iIUsUJ78bB0QfbUQ/FQWKo3LT0URArdgwfPgULpXvRgQSxtQVLqWsq2AZEG7EK2W7JRkyE1f9DM/Hpwxu2Ok2yypj31Cw++vN+b93nvzfu99xhq620AMdP/AmDV9B8AuGz6VTNWV3ytwOLi4nVFUWIAoGkaZmdnVwFgaWnppiAIVwAgk8kk5+fnXwipqWQyuUKmdnd3v7Pqs9nsY6t+c3Pz40b64l56FE3oP4HwAN53Cuzv7wctr2laAMBdAFy1Wj37jzs7O9cAvAtgH8BjAE8cIVNTUzGngCRJiuUVRVHm5uZiPM8zQRDarHq/398ZDAZjh4eHJ2ZVFsADAD8/1xldUIZhUC6Xy29tbSWnp6fjHMd9gtPt3zqIXZlMJjs8PHwPwNC/BiEiyufz2tjY2EcWgxFR2PRBAHfM8pxyuVxaUZR7ALz/KG8AeNPpfwLA+vr6jxMTE28BKNuXjj86OirYR7a3t/eTU0dEdIOIEk6z0TStoKqqBNjyhDFWrVQqZacOncQY+7VcLr/nFAsEAtL29rZyDvIyEkXxUqFQ+Msp1tfXVwTqHJAvEA/gCoCbvb29Q5Ik+ewNiOgPxthhw5BSqSQC+BCAxyw8AEQiESkej7/DGGP2bxhjnzPGqGGIKIrSzMxMVJZlwe/3ewKBgGdwcLAzHA6/znHcuSXf2NiIj4+Pf1Wzw4ODg6cXyZFUKvVoYGDgMwDzON3mrYcQEem6ricSiYeyLH+KZ7dofYhhGFUiqjQLS6fTTxRFudUQxEpGInIRkUREl4noKhHdJqJvicioBVpeXv6iKUgtEVFU13XHmabT6UctuRkZYw9SqdTXTjGfzye16voVE4mE7hgQRd6eJy4iOpdYdeQHEAEw1N/f/5pTA13X/+QBXANgHfedhmGcm12lUhEA3ALgxrOs9wDwi6LoWlhYCI+MjNxwgnAct8J3dXUNBAKBGABMTk52q6qq2BsSkScSiURVVfWoquqRZdkty7InGo2+Ojo6GpYkyVtrqoIgrGBtbe1+s/u/Cd0nIsaFQqGrddb8IvoSwG3GGOHk5ORhC0euE9E3dJqkLovG8zz/O4Cn9mGUSqWIKIodAHB8fFxwu92/AXBVq9XrPM+/AgDFYnHX6/V+DyBtlh8YY+mG5/r/g7spSEdHR97y7e3tZ97n8xUt39PTk7d/1xQkFAoVLB8MBs9eI21tbRXLd3d3O75S7PobZkIr5VWOUa4AAAAASUVORK5CYII=");width:25px;height:36px;margin:0 8px 0 0;bottom:4px}
+    </style>
+    
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript">
+        var sizeLimit = "51200kb", supportedFormats = "BMP, GIF, JP2, JPEG, JPG, PDF, PNG, PSD, TIF, TIFF, XCF", allName = "imagetopdf.pdf",
+        thumbnail_sortable = 1, thumbnail_clickable = 0;
+        text = { js_dropfiles : "Drop Your Files Here", js_toobig : "The file size is too large", js_wrongtype : "Wrong file format. Allowed",
+        js_of : "of", js_conerror : "Connection error.", js_error : "Error", js_share : "Please share this page via",
+        js_st_uploading : "UPLOADING", js_st_error : "ERROR", js_st_waiting : "WAITING",
+        js_st_converting : "CONVERTING", js_st_save : "DOWNLOAD" };
+        $(function() {
+                $("#share").share({ "networks" : ["twitter", "facebook", "googleplus", "stumbleupon", "reddit"], "theme" : "bw" });
+            $('#pls').polyglotLanguageSwitcher({ effect: 'fade' });
+            $("#policy").click(function(e) { e.preventDefault(); prettyPopup("/policy", "Privacy Policy"); });
+            $("#formats").click(function(e) { e.preventDefault(); prettyPopup("/formats", ""); });
+        });
+    </script>
+    <style>
+        html { display: none; }
+    </style>
+    <script type="text/javascript">
+        if (self == top) document.documentElement.style.display = "block";
+        else top.location = self.location;
+    </script>
+    
+</head>
+    <body>
+
+    <div id="wrapper" class="width">
+
+    <div id="header-wrapper">
+        <div id="header">
+            <div id="header-left">
+                <img src="/img/mylogofinal.png" alt="PDF from Image Online">
+                    <div id="desc">
+                        This is a free online image to PDF converter. You can create individual PDF files or merge them together in one PDF file. 
+                        Upload up to 120 pictures, wait a second or two and BOOM! PDF heaven.
+                    </div>
+                <ol>
+                    <li>Click the <b>UPLOAD FILES</b> and pick out your images, you can also drag and drop your image files.</li>
+                    <li>You can either download the converted files individually or click the <b>COMBINED</b> button to download the merged version.</li>
+                </ol>
+                    <div id="pls">
+                        <a id="en" class="current" href="#">English <span class="trigger">»</span></a>
+                        <ul class="dropdown">
+                        <li><a id="zh" href="/zh/">中文</a>
+                        </li><li><a id="es" href="/es/">Español</a></li>
+                        <li><a id="pt" href="/pt/">Português</a></li>
+                        <li><a id="ru" href="/ru/">Русский</a></li>
+                        <li><a id="id" href="/id/">Indonesia</a></li>
+                        <li><a id="fr" href="/fr/">Français</a></li>
+                        <li><a id="de" href="/de/">Deutsch</a></li>
+                        <li><a id="ja" href="/ja/">日本語</a></li>
+                        <li><a id="nl" href="/nl/">Nederlands</a></li>
+                        <li><a id="pl" href="/pl/">Polski</a></li>
+                        <li><a id="tr" href="/tr/">Türkçe</a></li>
+                        <li><a id="ko" href="/ko/">한국어</a></li>
+                        <li><a id="it" href="/it/">Italiano</a></li>
+                        <li><a id="vi" href="/vi/">Tiếng việt</a></li>
+                        </ul>
+                    </div>
+            </div>
+            <div id="header-right">
+
+                    <script async="" src="/js/function.js"></script>
+        <!-- imagetopdf-top-right-responsive -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8708471661558831" data-ad-slot="3146363901" data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+
+                <div id="alter-right">
+
+                    <style>
+        .more-tools {
+            width: 336px;
+            height: 270px;
+            border: 3px solid #C1C9C9;
+            border-radius: 30px 0 30px 0;
+            padding: 13px 15px;
+        }
+        .more-tools li {
+            padding-bottom: 8px;
+            list-style-type: none;
+            min-height: 65px;
+            overflow: hidden;
+        }
+        .more-tools ul {
+            padding: 0;
+            margin: 0;
+        }
+        .more-tools-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .more-tools-title a {
+            color: #0000FF;
+        }
+        .more-tools-title a:hover {
+            color: #ff0000;
+        }
+        .more-tools-text {
+            font-size: 14px;
+        }
+        .more-tools h2 {
+            padding-bottom: 8px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+    <div class="more-tools">
+        <h2>Bryan Hadden | Fullstack Developer</h2>
+        <ul>
+            <script>
+                function shuffle(o) {
+                    for (var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+                    return o;
+                }
+                var moreTools = shuffle([
+                    ["http://optimizilla.com",          "Optimizilla",          "The ultimate image optimizer."],
+                    ["http://pdf2doc.com",              "PDF to DOC",           "Save a PDF file as an editable document in DOC format."],
+                    ["http://jpg2pdf.com",              "JPG to PDF",           "Easily convert your JPG images to PDF format."],
+                    ["http://compressjpeg.com",         "Compress JPEG",        "Easily compress your photos using this online tool."],
+                    ["http://compresspng.com",          "Compress PNG",         "Compress PNG images for your websites and applications."],
+                    ["http://pdfcompressor.com",        "PDF Compressor",       "Compress PDF files without changing the resolution."],
+                    ["http://pdf2png.com",              "PDF to PNG",           "Save a PDF document as a set of separate PNG images."],
+                    ["http://pdfjpeg.com",              "PDF to JPG",           "Save a PDF document as a set of separate JPG images."],
+                    ["http://pdfdoc.com",               "PDF ⇄ DOC",            "Convert PDF to DOC and DOC to PDF."],
+                    ["http://toepub.com",               "Ebook Converter",      "Convert documents to EPUB, MOBI, AZW3, FB2, etc."],
+                    ["http://topdf.com",                "To PDF",               "Convert any documents to PDF format."],
+                    ["http://pdfjoiner.com",            "PDF Joiner",           "Join several PDF documents into a single file."],
+                    ["http://pngjpeg.com",              "PNG ⇄ JPEG",           "Convert PNG to JPG and Vice Versa."],
+                    ["http://pdfepub.com",              "PDF ⇄ ePub",           "Convert PDF to ePub and Vice Versa."],
+                    ["http://sentencechecker.com",      "Sentence Checker",     "Free online spell and grammar checker."],
+                    ["https://songcutter.com",          "Song Cutter",          "Make your own ringtones, alarms and notification tones."],
+                    ["http://croppdf.com",              "Crop PDF",             "Trim unwanted white space in a PDF file."],
+                ]);
+                var s = 0;
+                for (var i=0; i<moreTools.length; i++) {
+                    if (s < 3 && moreTools[i][0].indexOf(window.location.hostname) == -1) {
+                        document.writeln('<li><div class="more-tools-title"><a href="' + moreTools[i][0] + '">' + moreTools[i][1] + ' &#8663;</a></div>');
+                        document.writeln('<div class="more-tools-text">' + moreTools[i][2] + '</div></li>');
+                        moreTools.splice(i, 1);
+                        s++;
+                    }
+                }
+            </script>
+            
+            <li>
+                <div class="more-tools-title">
+                <a href="https://songcutter.com">PHP Website ⇗</a>
+                </div>
+                <div class="more-tools-text">Responsive website with PHP backend.
+                </div>
+            </li>
+            <li>
+                <div class="more-tools-title">
+                <a href="http://croppdf.com">Node.js Website⇗</a>
+                </div>
+                <div class="more-tools-text">Responsive website with Node.js backend.
+                </div>
+        </ul>
+    </div>
+
+
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div id="main">
+
+        <div class="ha-wrapper">
+            <div class="ha">
+
+                    <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- imagetopdf-top-responsive -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8708471661558831" data-ad-slot="2516621903" data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+
+            </div>
+        </div>
+
+
+
+        <div id="upload-buttons-wrapper">
+            <div id="pick-files" class="ui-button-success ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button" style="z-index: 1;"><span class="ui-button-icon-primary ui-icon ui-icon-folder-open"></span><span class="ui-button-text">Upload Files</span></div>
+            <div id="reset-all" class="ui-button-danger plupload_disabled ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary ui-button-disabled ui-state-disabled" role="button"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span><span class="ui-button-text">Clear Queue</span></div>
+        <div id="html5_1bepp6a9j1eem1lplrks1scb1c813_container" class="moxie-shim moxie-shim-html5" style="position: absolute; top: 0px; left: 0px; width: 145px; height: 33px; overflow: hidden; z-index: 0;"><input id="html5_1bepp6a9j1eem1lplrks1scb1c813" type="file" style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" multiple="" accept=""></div></div>
+        <div class="clear"></div>
+
+
+
+        <div id="carousel-wrapper">
+            <div id="carousel-prev-wrapper">
+                <div id="carousel-prev" class="disabled ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-button-disabled ui-state-disabled" role="button" title=""><span class="ui-button-icon-primary ui-icon ui-icon-triangle-1-w"></span><span class="ui-button-text"></span></div>
+            </div> 
+            <div id="container" style="width: 450px; left: 22px;">
+                <div id="carousel">
+                    <ul id="filelist" class="plupload_filelist"></ul>
+                <div id="plupload_drop">Drop Your Files Here</div></div>
+            </div>
+            <div id="carousel-next-wrapper">
+                <div id="carousel-next" class="disabled ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-button-disabled ui-state-disabled" role="button" title=""><span class="ui-button-icon-primary ui-icon ui-icon-triangle-1-e"></span><span class="ui-button-text"></span></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <button id="download-all" class="ui-btn-small ui-button-inverse ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary ui-button-disabled ui-state-disabled" role="button" disabled=""><span class="ui-button-icon-primary ui-icon ui-icon-check"></span><span class="ui-button-text">Combined</span></button>
+
+        <div class="ha-wrapper">
+            <div class="hl">
+
+                    <script async="" src="/js/function.js"></script>
+        <!-- imagetopdf-bottom-links -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8708471661558831" data-ad-slot="5768505504" data-ad-format="link"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="footer">
+        <div id="bottom">
+            <div id="like-it">Like it? <a>Tell Me!</a></div>
+            <div id="share" class="share" data-url="http://imagetopdf.com/" data-title="Convert Images to PDF Online"></div>
+            <p id="footer-privacy">All Data you upload will be reset after 30 minutes.</p>
+            <p id="footer-copy">&copy; 2017 Bryan Hadden | Fullstack Developer</p>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/js/plupload.full.min.js"></script>
+
+        <!-- Piwik -->
+        <script type="text/javascript">
+          var _paq = _paq || [];
+          _paq.push(["setDomains", ["*.imagetopdf.com"]]);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//s6.monohost.com/piwik/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', 153]);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <noscript><p><img src="//s6.monohost.com/piwik/piwik.php?idsite=153" style="border:0;" alt="" /></p></noscript>
+        <!-- End Piwik Code -->
+
+
+</body>
+</html>
